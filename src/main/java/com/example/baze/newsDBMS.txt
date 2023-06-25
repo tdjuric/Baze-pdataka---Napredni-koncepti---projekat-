@@ -1,0 +1,170 @@
+// Create nodes for articles
+CREATE (:Article {id: 'article1', title: 'Article 1', content: 'Lorem ipsum dolor sit amet.', published_at: datetime(), category: 'Politics', views: 100, likes: 50})
+CREATE (:Article {id: 'article2', title: 'Article 2', content: 'Consectetur adipiscing elit.', published_at: datetime(), category: 'Technology', views: 200, likes: 80})
+CREATE (:Article {id: 'article3', title: 'Article 3', content: 'Praesent et felis sed velit congue.', published_at: datetime(), category: 'Sports', views: 150, likes: 60})
+CREATE (:Article {id: 'article4', title: 'Article 4', content: 'Aliquam erat volutpat.', published_at: datetime(), category: 'Politics', views: 80, likes: 30})
+CREATE (:Article {id: 'article5', title: 'Article 5', content: 'Vivamus mattis ante ut nunc tincidunt.', published_at: datetime(), category: 'Business', views: 120, likes: 70})
+CREATE (:Article {id: 'article6', title: 'Article 6', content: 'Nullam rhoncus lacus ut pharetra.', published_at: datetime(), category: 'Technology', views: 90, likes: 40})
+CREATE (:Article {id: 'article7', title: 'Article 7', content: 'Duis id nulla facilisis.', published_at: datetime(), category: 'Sports', views: 70, likes: 20})
+CREATE (:Article {id: 'article8', title: 'Article 8', content: 'Etiam fringilla libero sit amet libero convallis.', published_at: datetime(), category: 'Politics', views: 110, likes: 45})
+CREATE (:Article {id: 'article9', title: 'Article 9', content: 'Mauris vel sagittis enim, at rhoncus nulla.', published_at: datetime(), category: 'Entertainment', views: 60, likes: 25})
+CREATE (:Article {id: 'article10', title: 'Article 10', content: 'Proin convallis ultricies mauris, et accumsan risus.', published_at: datetime(), category: 'Health', views: 40, likes: 15})
+CREATE (:Article {id: 'article11', title: 'Article 11', content: 'Sed pellentesque elit non enim dictum auctor.', published_at: datetime(), category: 'Business', views: 85, likes: 35})
+CREATE (:Article {id: 'article12', title: 'Article 12', content: 'Quisque sed risus nec neque aliquam dapibus.', published_at: datetime(), category: 'Politics', views: 130, likes: 55})
+CREATE (:Article {id: 'article13', title: 'Article 13', content: 'Nam consectetur lorem eget elit luctus, at finibus mi tincidunt.', published_at: datetime(), category: 'Sports', views: 75, likes: 28})
+CREATE (:Article {id: 'article14', title: 'Article 14', content: 'Suspendisse tristique odio ut libero interdum interdum.', published_at: datetime(), category: 'Technology', views: 95, likes: 42})
+CREATE (:Article {id: 'article15', title: 'Article 15', content: 'Cras id feugiat nulla.', published_at: datetime(), category: 'Business', views: 105, likes: 48})
+CREATE (:Article {id: 'article16', title: 'Article 16', content: 'Fusce accumsan gravida felis, id finibus elit venenatis ac.', published_at: datetime(), category: 'Entertainment', views: 65, likes: 32})
+CREATE (:Article {id: 'article17', title: 'Article 17', content: 'Vestibulum eu tellus ut ante pellentesque posuere.', published_at: datetime(), category: 'Health', views: 55, likes: 22})
+CREATE (:Article {id: 'article18', title: 'Article 18', content: 'Donec fermentum est in nisi ultrices, vitae congue est tincidunt.', published_at: datetime(), category: 'Politics', views: 115, likes: 52})
+CREATE (:Article {id: 'article19', title: 'Article 19', content: 'Aenean laoreet felis sit amet orci ultrices gravida.', published_at: datetime(), category: 'Sports', views: 80, likes: 38})
+CREATE (:Article {id: 'article20', title: 'Article 20', content: 'Pellentesque convallis tortor a est congue semper.', published_at: datetime(), category: 'Technology', views: 100, likes: 47})
+
+// Create nodes for authors
+CREATE (:Author {id: 'author1', name: 'John Doe', email: 'johndoe@example.com', bio: 'Experienced journalist specializing in politics.'})
+CREATE (:Author {id: 'author2', name: 'Jane Smith', email: 'janesmith@example.com', bio: 'Tech enthusiast with expertise in emerging technologies.'})
+CREATE (:Author {id: 'author3', name: 'Michael Johnson', email: 'michaeljohnson@example.com', bio: 'Sports journalist covering major events.'})
+CREATE (:Author {id: 'author4', name: 'Emily Davis', email: 'emilydavis@example.com', bio: 'Investigative journalist uncovering hidden stories.'})
+CREATE (:Author {id: 'author5', name: 'Robert Brown', email: 'robertbrown@example.com', bio: 'Business reporter analyzing market trends.'})
+CREATE (:Author {id: 'author6', name: 'Sarah Adams', email: 'sarahadams@example.com', bio: 'Entertainment journalist reporting on latest trends and events.'})
+CREATE (:Author {id: 'author7', name: 'David Wilson', email: 'davidwilson@example.com', bio: 'Health and wellness expert providing insightful articles.'})
+CREATE (:Author {id: 'author8', name: 'Laura Lee', email: 'lauralee@example.com', bio: 'Environmental journalist promoting sustainability.'})
+CREATE (:Author {id: 'author9', name: 'Mark Thompson', email: 'markthompson@example.com', bio: 'Financial analyst offering market insights.'})
+CREATE (:Author {id: 'author10', name: 'Amy Anderson', email: 'amyanderson@example.com', bio: 'Food and culinary writer exploring diverse cuisines.'})
+
+// Create nodes for tags
+CREATE (:Tag {id: 'tag1', name: 'Breaking News'})
+CREATE (:Tag {id: 'tag2', name: 'World'})
+CREATE (:Tag {id: 'tag3', name: 'Technology'})
+CREATE (:Tag {id: 'tag4', name: 'Sports'})
+CREATE (:Tag {id: 'tag5', name: 'Business'})
+CREATE (:Tag {id: 'tag6', name: 'Entertainment'})
+CREATE (:Tag {id: 'tag7', name: 'Health'})
+
+// Create relationships between articles and authors
+MATCH (a:Article {id: 'article1'}), (au:Author {id: 'author1'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article2'}), (au:Author {id: 'author2'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article3'}), (au:Author {id: 'author3'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article4'}), (au:Author {id: 'author1'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article5'}), (au:Author {id: 'author2'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article6'}), (au:Author {id: 'author4'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article7'}), (au:Author {id: 'author3'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article8'}), (au:Author {id: 'author5'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article9'}), (au:Author {id: 'author6'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article10'}), (au:Author {id: 'author7'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article11'}), (au:Author {id: 'author8'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article12'}), (au:Author {id: 'author9'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article13'}), (au:Author {id: 'author10'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article14'}), (au:Author {id: 'author1'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article15'}), (au:Author {id: 'author2'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article16'}), (au:Author {id: 'author3'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article17'}), (au:Author {id: 'author4'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article18'}), (au:Author {id: 'author5'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article19'}), (au:Author {id: 'author6'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+MATCH (a:Article {id: 'article20'}), (au:Author {id: 'author7'})
+CREATE (a)-[:AUTHORED_BY]->(au);
+
+// Create relationships between articles and tags
+MATCH (a:Article {id: 'article1'}), (t:Tag {id: 'tag1'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article1'}), (t:Tag {id: 'tag2'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article2'}), (t:Tag {id: 'tag3'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article3'}), (t:Tag {id: 'tag4'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article4'}), (t:Tag {id: 'tag1'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article5'}), (t:Tag {id: 'tag5'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article6'}), (t:Tag {id: 'tag3'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article7'}), (t:Tag {id: 'tag4'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article8'}), (t:Tag {id: 'tag1'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article8'}), (t:Tag {id: 'tag4'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article9'}), (t:Tag {id: 'tag6'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article10'}), (t:Tag {id: 'tag7'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article11'}), (t:Tag {id: 'tag5'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article12'}), (t:Tag {id: 'tag1'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article13'}), (t:Tag {id: 'tag4'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article14'}), (t:Tag {id: 'tag3'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article15'}), (t:Tag {id: 'tag5'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article16'}), (t:Tag {id: 'tag6'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article17'}), (t:Tag {id: 'tag7'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article18'}), (t:Tag {id: 'tag1'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article19'}), (t:Tag {id: 'tag4'})
+CREATE (a)-[:TAGGED_WITH]->(t);
+
+MATCH (a:Article {id: 'article20'}), (t:Tag {id: 'tag3'})
+CREATE (a)-[:TAGGED_WITH]->(t);
